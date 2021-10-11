@@ -20,12 +20,14 @@ public class VehicleServiceImpl implements VehicleService {
     public ResponseEntity<?> createVehicle(VehicleRequest vehicleRequest) {
 
         Vehicle vehicle = new Vehicle();
-        vehicle.setName(vehicleRequest.getName());
+        vehicle.setBrandName(vehicleRequest.getBrandName());
+        vehicle.setBrandModel(vehicleRequest.getBrandModel());
+        vehicle.setVehicleType(vehicleRequest.getVehicleType());
         vehicle.setAvailable(true);
 
         vehicleRepository.save(vehicle);
 
-        return new ResponseEntity<>("Vehicle " + vehicle.getName() + " has been created.", HttpStatus.OK);
+        return new ResponseEntity<>("Vehicle " + vehicle.getBrandName() + " has been created.", HttpStatus.OK);
     }
 
     public ResponseEntity<?> getVehicles() {

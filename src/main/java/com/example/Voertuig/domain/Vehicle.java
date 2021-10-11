@@ -2,15 +2,29 @@ package com.example.Voertuig.domain;
 
 import lombok.Data;
 
+import javax.persistence.*;
+
 @Data
+@Entity
 public class Vehicle {
 
-    private String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    private String brandName;
+    private String brandModel;
+    private String vehicleType;
     private boolean isAvailable;
     private static int counter = 0;
 
-    public Vehicle(String name, boolean isAvailable) {
-        this.name = name;
+    @ManyToOne
+    private Booking booking;
+
+    public Vehicle(long id, String brandName, String brandModel, String vehicleType, boolean isAvailable) {
+        this.id = id;
+        this.brandName = brandName;
+        this.brandModel = brandModel;
+        this.vehicleType = vehicleType;
         this.isAvailable = isAvailable;
         counter++;
     }

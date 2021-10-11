@@ -5,6 +5,10 @@ import lombok.Data;
 @Data
 public class VehicleRequest {
 
-    private String name;
+    private long id;
+    private String brandName;
+    private String brandModel;
+    private String vehicleType;
     private boolean isAvailable;
+
 }
