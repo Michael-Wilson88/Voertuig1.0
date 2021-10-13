@@ -7,7 +7,7 @@ package com.example.Voertuig.controller;
 // Check of ik 2 services kan aanroepen in deze controller class
 public class UserController {
 
-    private
+
 }
 
 //Endpoints voor user zijn:
