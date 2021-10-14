@@ -7,7 +7,12 @@ import com.example.Voertuig.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.Objects;
+
+@Service
 public class VehicleServiceImpl implements VehicleService {
 
     private VehicleRepository vehicleRepository;
@@ -16,6 +21,13 @@ public class VehicleServiceImpl implements VehicleService {
     public void setVehicleRepository (VehicleRepository vehicleRepository) {
         this.vehicleRepository = vehicleRepository;
     }
+
+//    public void makeVehicleAvailable() {
+//        Vehicle vehicle = new Vehicle();
+//        if (Objects.equals(vehicle.getReturnDate(), LocalDate.now())) {
+//            vehicle.setAvailable(true);
+//        }
+//    }
 
     public ResponseEntity<?> createVehicle(VehicleRequest vehicleRequest) {
 

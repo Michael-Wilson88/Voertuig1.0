@@ -3,6 +3,7 @@ package com.example.Voertuig.domain;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Data
 @Entity
@@ -14,6 +15,8 @@ public class Vehicle {
     private String brandName;
     private String brandModel;
     private String vehicleType;
+    private long bookingDays;
+    private LocalDate returnDate;
     private boolean isAvailable;
     private static int counter = 0;
 

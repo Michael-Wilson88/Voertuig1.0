@@ -1,6 +1,7 @@
 package com.example.Voertuig.domain;
 
 import lombok.Data;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -10,6 +11,7 @@ import java.util.List;
 
 @Data
 @Entity
+@Component
 public class Booking {
 
     @Id
