@@ -20,7 +20,7 @@ public class Vehicle {
     private boolean isAvailable;
     private static int counter = 0;
 
-    @ManyToOne
+    @OneToOne
     private Booking booking;
 
     public Vehicle(long id, String brandName, String brandModel, String vehicleType, boolean isAvailable) {

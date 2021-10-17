@@ -20,5 +20,8 @@ public class CustomerServiceImpl implements CustomerService {
         return ResponseEntity.ok(customerRepository.findAll());
     }
 
+//    public ResponseEntity<?> getBookings() {
+//
+//    }
 
 }
