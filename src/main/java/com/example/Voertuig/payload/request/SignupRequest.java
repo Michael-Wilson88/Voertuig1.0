@@ -25,4 +25,8 @@ public class SignupRequest {
     @Size(min = 6, max = 40, message = "Size must be between 6-40 characters.")
     private String password;
 
+    private String address;
+    private String zipcode;
+    private String country;
+
 }

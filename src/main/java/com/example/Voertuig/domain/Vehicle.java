@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @Entity
@@ -20,8 +21,8 @@ public class Vehicle {
     private boolean isAvailable;
     private static int counter = 0;
 
-    @OneToOne
-    private Booking booking;
+    @OneToMany(mappedBy = "vehicle")
+    private List<Booking> bookings;
 
     public Vehicle(long id, String brandName, String brandModel, String vehicleType, boolean isAvailable) {
         this.id = id;

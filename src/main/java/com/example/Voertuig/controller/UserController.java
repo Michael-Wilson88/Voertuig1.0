@@ -4,7 +4,9 @@ package com.example.Voertuig.controller;
 // Alle reserveringen die er zijn moeten alleen voor de ADMIN zichtbaar zijn. app/bookings
 // Ik moet dit dus waarschijnlijk vanaf de controller definieren en niet vanuit de servicelayer, in de service layer moet de methode denk ik geen responseEntity zijn
 
+import com.example.Voertuig.domain.Booking;
 import com.example.Voertuig.payload.request.BookVehicleRequest;
+import com.example.Voertuig.payload.request.SignupRequest;
 import com.example.Voertuig.service.BookingService;
 import com.example.Voertuig.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,12 +38,16 @@ public class UserController {
         return ResponseEntity.ok().body(customerService.getCustomers());
     }
 
-    //@Pathvariable (User moet username worden, dan path variable als die gebruiken)
-    @PostMapping(value = "/user/booking")
-    public ResponseEntity<Object> addBooking(@Valid @RequestBody BookVehicleRequest bookVehicleRequest) {
-        return ResponseEntity.ok().body(bookingService.addVehicle(bookVehicleRequest));
+
+    @PostMapping(value = "/{username}/booking")
+    public ResponseEntity<Object> addBooking(@PathVariable("username") String userName, @Valid @RequestBody BookVehicleRequest bookVehicleRequest) {
+        return ResponseEntity.ok().body(bookingService.bookVehicle(userName, bookVehicleRequest));
     }
 
+    @PostMapping(value = "/createtempuser")
+    public ResponseEntity<?> createTempUser(@Valid @RequestBody SignupRequest signupRequest) {
+        return customerService.createTempUser(signupRequest);
+    }
 }
 
 //Endpoints voor user zijn:

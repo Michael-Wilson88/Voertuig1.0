@@ -4,14 +4,17 @@ import com.example.Voertuig.domain.Booking;
 import com.example.Voertuig.domain.Customer;
 import com.example.Voertuig.domain.Vehicle;
 import com.example.Voertuig.exceptions.DuplicateVehicleException;
+import com.example.Voertuig.exceptions.UserNotFoundException;
 import com.example.Voertuig.exceptions.VehicleNotFoundException;
 import com.example.Voertuig.exceptions.VehicleUnavailableException;
 import com.example.Voertuig.payload.request.BookVehicleRequest;
 import com.example.Voertuig.payload.request.VehicleRequest;
 import com.example.Voertuig.repository.BookingRepository;
+import com.example.Voertuig.repository.CustomerRepository;
 import com.example.Voertuig.repository.UserRepository;
 import com.example.Voertuig.repository.VehicleRepository;
 import com.example.Voertuig.service.BookingService;
+import com.example.Voertuig.service.CustomerService;
 import com.example.Voertuig.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -33,6 +36,7 @@ public class BookingServiceImpl implements BookingService {
 
 //    private List<Vehicle> vehicles = new ArrayList<>();
     private VehicleService vehicleService;
+    private CustomerService customerService;
     @Autowired
     private BookingRepository bookingRepository;
 
@@ -40,7 +44,7 @@ public class BookingServiceImpl implements BookingService {
     private VehicleRepository vehicleRepository;
 
     @Autowired
-    private UserRepository userRepository;
+    private CustomerRepository customerRepository;
 
     @Autowired
     public void setBookingRepository(BookingRepository bookingRepository) {
@@ -49,6 +53,15 @@ public class BookingServiceImpl implements BookingService {
 
     public Collection<Booking> getBookings() {
         return bookingRepository.findAll();
+    }
+
+    public Customer checkIfCustomerExists(String userName) {
+
+        Optional<Customer> optionalCustomer = customerRepository.findCustomerByUsername(userName);
+        if (optionalCustomer.isEmpty()) {
+            throw new UserNotFoundException(userName);
+        }
+        return optionalCustomer.get();
     }
 
     public Vehicle checkIfVehicleExists(long id) {
@@ -81,53 +94,71 @@ public class BookingServiceImpl implements BookingService {
         return LocalDate.parse(bookVehicleRequest.getEndDate(), formatter);
     }
 //    Dit kan denk in de addVhicle methode gezet wordenj
-//    public void createBooking() {
-//
-//        Booking booking = new Booking();
-//        bookingRepository.save(booking);
-//    }
+    public Booking createBooking() {
 
-//    public ResponseEntity<?> addVehicle(BookVehicleRequest bookVehicleRequest) {
+        Booking booking = new Booking();
+        bookingRepository.save(booking);
+        return booking;
+    }
+
+    // TODO: 18-10-2021 createBooking() en dan addVehicleToBooking() apart
+
+//    public ResponseEntity<Object> bookVehicle(String userName, BookVehicleRequest bookVehicleRequest) {
 //
-//        Booking booking = new Booking();
+//
 //        Vehicle vehicle = checkIfVehicleExists(bookVehicleRequest.getId());
+//        Customer customer = checkIfCustomerExists(userName);
+//        Booking booking = new Booking();
+//
+//        List<Booking> customerBookings = customer.getBookings();
+//        List<Booking> vehicleBookings = vehicle.getBookings();
 //
 //        LocalDate startDate =  startDateFormatter(bookVehicleRequest);
 //        LocalDate returnDate = returnDateFormatter(bookVehicleRequest);
 //        Period bookingPeriod = Period.between(startDate, returnDate);
 //        long bookingDays = bookingPeriod.getDays();
 //
-//        if (vehicle.isAvailable()) {
-//            vehicle.setBookingDays(bookingDays);
-//            vehicle.setReturnDate(returnDate);
-//            vehicle.setAvailable(false);
-//            booking.setVehicle(vehicle);
-//        }
-//        else if (!vehicle.isAvailable()) {
-//            throw new VehicleUnavailableException(bookVehicleRequest.getId());
-//        }
 //
-//        return ResponseEntity.ok().body("Vehicle added for " + vehicle.getBookingDays() + " days.");
+//        booking.setStartDate(startDate);
+//        booking.setReturnDate(returnDate);
+//        booking.setVehicle(vehicle);
+//        booking.setUser(customer);
+//        customerBookings.add(booking);
+//        vehicleBookings.add(booking);
+//        booking.setId(booking.getId());
+//        bookingRepository.save(booking);
+//
+//
+//
+//        return ResponseEntity.ok().body("Booking " + booking.getId() + " has been created");
 //    }
-    public Booking addVehicle(BookVehicleRequest bookVehicleRequest) {
 
-        Booking booking = new Booking();
+
+    public Booking bookVehicle(String userName, BookVehicleRequest bookVehicleRequest) {
+
+
         Vehicle vehicle = checkIfVehicleExists(bookVehicleRequest.getId());
+        Customer customer = checkIfCustomerExists(userName);
+        Booking booking = new Booking();
+
+        List<Booking> customerBookings = customer.getBookings();
+        List<Booking> vehicleBookings = vehicle.getBookings();
 
         LocalDate startDate =  startDateFormatter(bookVehicleRequest);
         LocalDate returnDate = returnDateFormatter(bookVehicleRequest);
         Period bookingPeriod = Period.between(startDate, returnDate);
         long bookingDays = bookingPeriod.getDays();
 
-        if (vehicle.isAvailable()) {
-            vehicle.setBookingDays(bookingDays);
-            vehicle.setReturnDate(returnDate);
-            vehicle.setAvailable(false);
-            booking.setVehicle(vehicle);
-        }
-        else if (!vehicle.isAvailable()) {
-            throw new VehicleUnavailableException(bookVehicleRequest.getId());
-        }
+
+        booking.setStartDate(startDate);
+        booking.setReturnDate(returnDate);
+        booking.setVehicle(vehicle);
+        booking.setUser(customer);
+//        customerBookings.add(booking);
+//        vehicleBookings.add(booking);
+        UUID.randomUUID();
+        bookingRepository.save(booking);
+
         return booking;
     }
 }

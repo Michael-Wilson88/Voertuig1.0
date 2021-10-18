@@ -10,14 +10,11 @@ import java.util.List;
 @Entity
 public class Customer extends User {
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private long id;
     private String address;
     private String zipcode;
     private String country;
 
-    @OneToMany
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Booking> bookings;
 
     public Customer(String username, String email, String password, String address, String zipcode, String country) {

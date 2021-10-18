@@ -12,6 +12,6 @@ import java.util.Collection;
 public interface BookingService {
 
     Collection<Booking> getBookings();
-//    ResponseEntity<?> addVehicle(BookVehicleRequest bookVehicleRequest);
-    Booking addVehicle(BookVehicleRequest bookVehicleRequest);
+//    ResponseEntity<Object> bookVehicle(String userName, BookVehicleRequest bookVehicleRequest);
+   Booking bookVehicle(String userName, BookVehicleRequest bookVehicleRequest);
 }
