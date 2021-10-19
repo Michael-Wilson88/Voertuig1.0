@@ -4,7 +4,10 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.Period;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Data
 @Entity
@@ -21,17 +24,12 @@ public class Vehicle {
     private boolean isAvailable;
     private static int counter = 0;
 
+    @Transient
+    private List<Period> unavailablePeriods;
+
     @OneToMany(mappedBy = "vehicle")
     private List<Booking> bookings;
 
-    public Vehicle(long id, String brandName, String brandModel, String vehicleType, boolean isAvailable) {
-        this.id = id;
-        this.brandName = brandName;
-        this.brandModel = brandModel;
-        this.vehicleType = vehicleType;
-        this.isAvailable = isAvailable;
-        counter++;
-    }
 
     public Vehicle() {
         counter++;

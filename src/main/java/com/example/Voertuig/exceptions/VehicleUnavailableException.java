@@ -4,7 +4,7 @@ public class VehicleUnavailableException extends RuntimeException {
     private static final long serialVersionUID = 1L;
 
     public VehicleUnavailableException(Long id) {
-        super("Vehicle is unavailable");
+        super("Vehicle" + id + " is unavailable");
     }
 
 }

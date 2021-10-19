@@ -34,8 +34,9 @@ import java.util.*;
 @Service
 public class BookingServiceImpl implements BookingService {
 
-//    private List<Vehicle> vehicles = new ArrayList<>();
+
     private VehicleService vehicleService;
+
     private CustomerService customerService;
     @Autowired
     private BookingRepository bookingRepository;
@@ -50,6 +51,7 @@ public class BookingServiceImpl implements BookingService {
     public void setBookingRepository(BookingRepository bookingRepository) {
         this.bookingRepository = bookingRepository;
     }
+
 
     public Collection<Booking> getBookings() {
         return bookingRepository.findAll();
@@ -93,51 +95,13 @@ public class BookingServiceImpl implements BookingService {
 
         return LocalDate.parse(bookVehicleRequest.getEndDate(), formatter);
     }
-//    Dit kan denk in de addVhicle methode gezet wordenj
-    public Booking createBooking() {
 
-        Booking booking = new Booking();
-        bookingRepository.save(booking);
-        return booking;
-    }
 
     // TODO: 18-10-2021 createBooking() en dan addVehicleToBooking() apart
 
-//    public ResponseEntity<Object> bookVehicle(String userName, BookVehicleRequest bookVehicleRequest) {
-//
-//
-//        Vehicle vehicle = checkIfVehicleExists(bookVehicleRequest.getId());
-//        Customer customer = checkIfCustomerExists(userName);
-//        Booking booking = new Booking();
-//
-//        List<Booking> customerBookings = customer.getBookings();
-//        List<Booking> vehicleBookings = vehicle.getBookings();
-//
-//        LocalDate startDate =  startDateFormatter(bookVehicleRequest);
-//        LocalDate returnDate = returnDateFormatter(bookVehicleRequest);
-//        Period bookingPeriod = Period.between(startDate, returnDate);
-//        long bookingDays = bookingPeriod.getDays();
-//
-//
-//        booking.setStartDate(startDate);
-//        booking.setReturnDate(returnDate);
-//        booking.setVehicle(vehicle);
-//        booking.setUser(customer);
-//        customerBookings.add(booking);
-//        vehicleBookings.add(booking);
-//        booking.setId(booking.getId());
-//        bookingRepository.save(booking);
-//
-//
-//
-//        return ResponseEntity.ok().body("Booking " + booking.getId() + " has been created");
-//    }
+    public ResponseEntity<Object> bookVehicle(String userName, BookVehicleRequest bookVehicleRequest) {
 
-
-    public Booking bookVehicle(String userName, BookVehicleRequest bookVehicleRequest) {
-
-
-        Vehicle vehicle = checkIfVehicleExists(bookVehicleRequest.getId());
+        Vehicle vehicle = checkIfVehicleExists(bookVehicleRequest.getVehicleId());
         Customer customer = checkIfCustomerExists(userName);
         Booking booking = new Booking();
 
@@ -149,16 +113,28 @@ public class BookingServiceImpl implements BookingService {
         Period bookingPeriod = Period.between(startDate, returnDate);
         long bookingDays = bookingPeriod.getDays();
 
+        List<Period> periods = vehicle.getUnavailablePeriods();
 
-        booking.setStartDate(startDate);
-        booking.setReturnDate(returnDate);
-        booking.setVehicle(vehicle);
-        booking.setUser(customer);
-//        customerBookings.add(booking);
-//        vehicleBookings.add(booking);
-        UUID.randomUUID();
+        if (!periods.contains(bookingPeriod)|| periods.isEmpty()) {
+            periods.add(bookingPeriod);
+            vehicleBookings.add(booking);
+            customerBookings.add(booking);
+            booking.setStartDate(startDate);
+            booking.setReturnDate(returnDate);
+            booking.setVehicle(vehicle);
+            booking.setUser(customer);
+            booking.setDays(bookingDays);
+            customerBookings.add(booking);
+        }
+        else if (vehicle.getUnavailablePeriods().contains(bookingPeriod)) {
+            throw new VehicleUnavailableException(bookVehicleRequest.getVehicleId());
+        }
+
+
+
         bookingRepository.save(booking);
 
-        return booking;
+        return ResponseEntity.ok().body("Booking " + booking.getId() + " has been created");
     }
+
 }

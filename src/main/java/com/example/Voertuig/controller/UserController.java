@@ -41,7 +41,7 @@ public class UserController {
 
     @PostMapping(value = "/{username}/booking")
     public ResponseEntity<Object> addBooking(@PathVariable("username") String userName, @Valid @RequestBody BookVehicleRequest bookVehicleRequest) {
-        return ResponseEntity.ok().body(bookingService.bookVehicle(userName, bookVehicleRequest));
+        return bookingService.bookVehicle(userName, bookVehicleRequest);
     }
 
     @PostMapping(value = "/createtempuser")

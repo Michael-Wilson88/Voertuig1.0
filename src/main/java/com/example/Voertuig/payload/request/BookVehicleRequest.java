@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 public class BookVehicleRequest {
 
     @NotNull(message = "Vehicle id is mandatory")
-    private Long id;
+    private Long vehicleId;
     @NotBlank(message = "BeginDate is mandatory")
     private CharSequence beginDate;
     @NotBlank(message = "EndDate is mandatory")

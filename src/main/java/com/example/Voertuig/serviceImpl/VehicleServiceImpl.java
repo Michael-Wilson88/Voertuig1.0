@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.Period;
+import java.util.List;
 import java.util.Objects;
 
 @Service
@@ -22,11 +24,8 @@ public class VehicleServiceImpl implements VehicleService {
         this.vehicleRepository = vehicleRepository;
     }
 
-//    public void makeVehicleAvailable() {
-//        Vehicle vehicle = new Vehicle();
-//        if (Objects.equals(vehicle.getReturnDate(), LocalDate.now())) {
-//            vehicle.setAvailable(true);
-//        }
+//    public void addPeriod(Vehicle vehicle, Period period) {
+//        vehicle.getUnavailablePeriods().add(period);
 //    }
 
     public ResponseEntity<?> createVehicle(VehicleRequest vehicleRequest) {
@@ -48,6 +47,8 @@ public class VehicleServiceImpl implements VehicleService {
         }
         return ResponseEntity.ok(vehicleRepository.findAll());
     }
+
+
 
 
 }
