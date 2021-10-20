@@ -9,6 +9,8 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
+import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
+
 
 @Entity
 @Table(name = "Booking")
@@ -17,7 +19,7 @@ public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private Long bookingId;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE})
     @JoinColumn(name = "customer_id")
@@ -33,8 +35,8 @@ public class Booking {
     private LocalDate returnDate;
     private Long days;
 
-    public Booking(Long id, User user, Vehicle vehicle, LocalDate startDate, LocalDate returnDate, Long days) {
-        this.id = id;
+    public Booking(Long bookingId, User user, Vehicle vehicle, LocalDate startDate, LocalDate returnDate, Long days) {
+        this.bookingId = bookingId;
         this.user = user;
         this.vehicle = vehicle;
         this.startDate = startDate;
@@ -47,12 +49,12 @@ public class Booking {
 
     }
 
-    public Long getId() {
-        return id;
+    public Long getBookingId() {
+        return bookingId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setBookingId(Long bookingId) {
+        this.bookingId = bookingId;
     }
 
     public User getUser() {

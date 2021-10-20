@@ -1,5 +1,6 @@
 package com.example.Voertuig.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
@@ -10,10 +11,14 @@ import java.util.List;
 @Entity
 public class Customer extends User {
 
+    @JsonIgnore
     private String address;
+    @JsonIgnore
     private String zipcode;
+    @JsonIgnore
     private String country;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Booking> bookings;
 

@@ -34,7 +34,6 @@ public class VehicleServiceImpl implements VehicleService {
         vehicle.setBrandName(vehicleRequest.getBrandName());
         vehicle.setBrandModel(vehicleRequest.getBrandModel());
         vehicle.setVehicleType(vehicleRequest.getVehicleType());
-        vehicle.setAvailable(true);
 
         vehicleRepository.save(vehicle);
 

@@ -38,6 +38,12 @@ public class UserController {
         return ResponseEntity.ok().body(customerService.getCustomers());
     }
 
+    @GetMapping(value = "/{username}")
+    public ResponseEntity<Object> getCustomer(@PathVariable("username") String userName) {
+        return customerService.getUser(userName);
+
+    }
+
 
     @PostMapping(value = "/{username}/booking")
     public ResponseEntity<Object> addBooking(@PathVariable("username") String userName, @Valid @RequestBody BookVehicleRequest bookVehicleRequest) {

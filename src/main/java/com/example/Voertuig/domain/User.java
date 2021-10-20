@@ -1,5 +1,6 @@
 package com.example.Voertuig.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -22,13 +23,15 @@ public class User {
             strategy = "native"
     )
     @Column(columnDefinition = "serial")
-    private long id;
+    private Long customerId;
     @Column(unique = true)
     private String username;
     private String email;
+    @JsonIgnore
     private String password;
 
     @ManyToMany
+    @JsonIgnore
     @JoinTable(name = "user_role",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))

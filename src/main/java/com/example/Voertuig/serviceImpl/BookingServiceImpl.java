@@ -25,7 +25,11 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 // TODO: 17-10-2021 Ik heb de relatie verandert van vehicle en bookings naar een OneToOne. Dit zodat elke booking maar 1 vehicle heeft en het makkelijker op te zoeken is
 // dan heeft elke customer meerdere bookings
@@ -51,7 +55,6 @@ public class BookingServiceImpl implements BookingService {
     public void setBookingRepository(BookingRepository bookingRepository) {
         this.bookingRepository = bookingRepository;
     }
-
 
     public Collection<Booking> getBookings() {
         return bookingRepository.findAll();
@@ -95,6 +98,13 @@ public class BookingServiceImpl implements BookingService {
 
         return LocalDate.parse(bookVehicleRequest.getEndDate(), formatter);
     }
+    public LocalDate dateFormatter(String givenDate) {
+        DateTimeFormatter formatter = new DateTimeFormatterBuilder()
+                .parseCaseInsensitive()
+                .appendPattern("dd-MM-yyyy")
+                .toFormatter(Locale.ENGLISH);
+        return LocalDate.parse(givenDate, formatter);
+    }
 
 
     // TODO: 18-10-2021 createBooking() en dan addVehicleToBooking() apart
@@ -105,36 +115,37 @@ public class BookingServiceImpl implements BookingService {
         Customer customer = checkIfCustomerExists(userName);
         Booking booking = new Booking();
 
-        List<Booking> customerBookings = customer.getBookings();
         List<Booking> vehicleBookings = vehicle.getBookings();
+        List<LocalDate> bookedDates = vehicle.getBookedDates();
 
         LocalDate startDate =  startDateFormatter(bookVehicleRequest);
         LocalDate returnDate = returnDateFormatter(bookVehicleRequest);
+        List<LocalDate> daysInBetween = startDate.datesUntil(returnDate.plusDays(1)).collect(Collectors.toList());
+
         Period bookingPeriod = Period.between(startDate, returnDate);
         long bookingDays = bookingPeriod.getDays();
 
-        List<Period> periods = vehicle.getUnavailablePeriods();
 
-        if (!periods.contains(bookingPeriod)|| periods.isEmpty()) {
-            periods.add(bookingPeriod);
-            vehicleBookings.add(booking);
-            customerBookings.add(booking);
+        if(bookedDates.stream().anyMatch(daysInBetween::contains)) {
+            throw new VehicleUnavailableException(vehicle.getVehicleId());
+        }
+
+        else if (bookedDates.stream().noneMatch(daysInBetween::contains)) {
             booking.setStartDate(startDate);
             booking.setReturnDate(returnDate);
             booking.setVehicle(vehicle);
             booking.setUser(customer);
             booking.setDays(bookingDays);
-            customerBookings.add(booking);
+            bookedDates.addAll(daysInBetween);
+            vehicle.setBookedDates(bookedDates);
+            vehicleRepository.save(vehicle);
+            bookingRepository.save(booking);
+            return ResponseEntity.ok().body("Booking " + booking.getBookingId() + " has been created");
+//                    customerRepository.save(customer);
         }
-        else if (vehicle.getUnavailablePeriods().contains(bookingPeriod)) {
-            throw new VehicleUnavailableException(bookVehicleRequest.getVehicleId());
-        }
 
-
-
-        bookingRepository.save(booking);
-
-        return ResponseEntity.ok().body("Booking " + booking.getId() + " has been created");
+        return ResponseEntity.ok().body("BRRRT error, error");
     }
+
 
 }

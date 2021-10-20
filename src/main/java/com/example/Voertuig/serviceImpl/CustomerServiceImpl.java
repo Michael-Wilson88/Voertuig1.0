@@ -1,8 +1,9 @@
 package com.example.Voertuig.serviceImpl;
 
-import com.example.Voertuig.domain.Booking;
 import com.example.Voertuig.domain.Customer;
+import com.example.Voertuig.exceptions.UserNotFoundException;
 import com.example.Voertuig.payload.request.SignupRequest;
+import com.example.Voertuig.payload.response.ResponseBuilder;
 import com.example.Voertuig.repository.CustomerRepository;
 import com.example.Voertuig.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,12 @@ public class CustomerServiceImpl implements CustomerService {
         customerRepository.save(customer);
         return new ResponseEntity<>("User " + customer.getUsername() + " has been created.", HttpStatus.OK);
 
+    }
+
+    public ResponseEntity<Object> getUser(String userName) {
+        Customer customer = customerRepository.findCustomerByUsername(userName)
+                .orElseThrow(() -> new UserNotFoundException(userName));
+        return ResponseEntity.ok().body(ResponseBuilder.customerResponse(customer));
     }
 
 //    public ResponseEntity<?> getBookings() {

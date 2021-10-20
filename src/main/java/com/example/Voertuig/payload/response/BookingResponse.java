@@ -17,4 +17,13 @@ public class BookingResponse {
     private LocalDate startDate;
     private LocalDate returnDate;
     private Long days;
+
+    public BookingResponse(Long id, User user, Vehicle vehicle, LocalDate startDate, LocalDate returnDate, Long days) {
+        this.id = id;
+        this.user = user;
+        this.vehicle = vehicle;
+        this.startDate = startDate;
+        this.returnDate = returnDate;
+        this.days = days;
+    }
 }

@@ -9,5 +9,5 @@ import org.springframework.stereotype.Service;
 public interface CustomerService {
     Object getCustomers();
     ResponseEntity<?> createTempUser(SignupRequest signupRequest);
-   // Booking createBooking();
+    ResponseEntity<Object> getUser(String userName);
 }
