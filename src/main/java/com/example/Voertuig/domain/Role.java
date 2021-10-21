@@ -19,7 +19,7 @@ public class Role {
             strategy = "native"
     )
     @Column(columnDefinition = "serial")
-    private long id;
+    private Long id;
 
     @Enumerated(EnumType.STRING)
     private ERole name;

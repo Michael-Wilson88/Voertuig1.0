@@ -12,5 +12,6 @@ public interface BookingService {
 
     Collection<Booking> getBookings();
     ResponseEntity<Object> bookVehicle(String userName, BookVehicleRequest bookVehicleRequest);
+    ResponseEntity<Object> deleteBooking(String userName, Long id);
 
 }

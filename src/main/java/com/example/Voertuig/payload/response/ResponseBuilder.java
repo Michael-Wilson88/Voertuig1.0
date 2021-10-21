@@ -28,7 +28,7 @@ public class ResponseBuilder {
 
     public static CustomerResponse customerResponse (Customer customer) {
         return new CustomerResponse(
-                customer.getCustomerId(),
+                customer.getId(),
                 customer.getUsername(),
                 customer.getEmail(),
                 customer.getAddress(),

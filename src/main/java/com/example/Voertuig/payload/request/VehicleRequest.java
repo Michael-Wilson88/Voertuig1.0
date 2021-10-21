@@ -7,7 +7,7 @@ import javax.validation.constraints.NotBlank;
 @Data
 public class VehicleRequest {
 
-    private long id;
+    private Long id;
     @NotBlank(message = "BrandName is mandatory.")
     private String brandName;
     @NotBlank(message = "BrandModel is mandatory.")

@@ -1,7 +1,7 @@
 package com.example.Voertuig.controller;
 
-// De reservering die een User gemaakt heeft moet zichtbaar zijn. Dan wordt het zoiets: app/user/bookings
-// Alle reserveringen die er zijn moeten alleen voor de ADMIN zichtbaar zijn. app/bookings
+
+
 // Ik moet dit dus waarschijnlijk vanaf de controller definieren en niet vanuit de servicelayer, in de service layer moet de methode denk ik geen responseEntity zijn
 
 import com.example.Voertuig.domain.Booking;
@@ -9,19 +9,24 @@ import com.example.Voertuig.payload.request.BookVehicleRequest;
 import com.example.Voertuig.payload.request.SignupRequest;
 import com.example.Voertuig.service.BookingService;
 import com.example.Voertuig.service.CustomerService;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.logging.Logger;
 
-// Check of ik 2 services kan aanroepen in deze controller class
+
 @RestController
-public class UserController {
+public class UserController extends BaseController {
 
     private BookingService bookingService;
 
     private CustomerService customerService;
+
+    Logger logger = Logger.getLogger(UserController.class.getName());
 
     @Autowired
     public void setBookingService(BookingService bookingService) {
@@ -38,24 +43,14 @@ public class UserController {
         return ResponseEntity.ok().body(customerService.getCustomers());
     }
 
-    @GetMapping(value = "/{username}")
+    @GetMapping(value = "/users/{username}")
     public ResponseEntity<Object> getCustomer(@PathVariable("username") String userName) {
         return customerService.getUser(userName);
 
     }
-
-
-    @PostMapping(value = "/{username}/booking")
+    @PostMapping(value = "/users/{username}/booking")
     public ResponseEntity<Object> addBooking(@PathVariable("username") String userName, @Valid @RequestBody BookVehicleRequest bookVehicleRequest) {
         return bookingService.bookVehicle(userName, bookVehicleRequest);
     }
 
-    @PostMapping(value = "/createtempuser")
-    public ResponseEntity<?> createTempUser(@Valid @RequestBody SignupRequest signupRequest) {
-        return customerService.createTempUser(signupRequest);
-    }
 }
-
-//Endpoints voor user zijn:
-///user/bookings
-///user/vehicles ?

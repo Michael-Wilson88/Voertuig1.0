@@ -23,7 +23,7 @@ public class User {
             strategy = "native"
     )
     @Column(columnDefinition = "serial")
-    private Long customerId;
+    private Long id;
     @Column(unique = true)
     private String username;
     private String email;

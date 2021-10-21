@@ -4,15 +4,13 @@ import com.example.Voertuig.payload.request.VehicleRequest;
 import com.example.Voertuig.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
 @RestController
-public class VehicleController {
+public class VehicleController extends BaseController {
 
     private VehicleService vehicleService;
 
@@ -25,10 +23,12 @@ public class VehicleController {
     public ResponseEntity<?> getVehicles(){
         return vehicleService.getVehicles();
     }
-    // @PreAuthorize als security
+    @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
     @PostMapping(value = "/createvehicle")
     public ResponseEntity<?> createVehicle(@Valid @RequestBody VehicleRequest vehicleRequest) {
         return vehicleService.createVehicle(vehicleRequest);
     }
+
+//    @DeleteMapping
 
 }

@@ -32,6 +32,7 @@ public class Vehicle {
     @Transient
     private List<Period> bookedPeriods = new ArrayList<>();
 
+    @JsonIgnore
     @ElementCollection
     public List<LocalDate> bookedDates = new ArrayList<>();
 

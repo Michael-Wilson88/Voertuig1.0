@@ -3,11 +3,9 @@ package com.example.Voertuig.serviceImpl;
 import com.example.Voertuig.domain.Booking;
 import com.example.Voertuig.domain.Customer;
 import com.example.Voertuig.domain.Vehicle;
-import com.example.Voertuig.exceptions.DuplicateVehicleException;
-import com.example.Voertuig.exceptions.UserNotFoundException;
-import com.example.Voertuig.exceptions.VehicleNotFoundException;
-import com.example.Voertuig.exceptions.VehicleUnavailableException;
+import com.example.Voertuig.exceptions.*;
 import com.example.Voertuig.payload.request.BookVehicleRequest;
+import com.example.Voertuig.payload.request.DeleteBookingRequest;
 import com.example.Voertuig.payload.request.VehicleRequest;
 import com.example.Voertuig.repository.BookingRepository;
 import com.example.Voertuig.repository.CustomerRepository;
@@ -17,6 +15,7 @@ import com.example.Voertuig.service.BookingService;
 import com.example.Voertuig.service.CustomerService;
 import com.example.Voertuig.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -39,9 +38,6 @@ import java.util.stream.Stream;
 public class BookingServiceImpl implements BookingService {
 
 
-    private VehicleService vehicleService;
-
-    private CustomerService customerService;
     @Autowired
     private BookingRepository bookingRepository;
 
@@ -56,8 +52,29 @@ public class BookingServiceImpl implements BookingService {
         this.bookingRepository = bookingRepository;
     }
 
+    public ResponseEntity<Object> deleteBooking(String userName, Long id) {
+
+        Booking booking = checkIfBookingExists(id);
+        Customer customer = checkIfCustomerExists(userName);
+        Vehicle vehicle = booking.getVehicle();
+        List<LocalDate> daysInBetween = datesChecker(booking.getStartDate(), booking.getReturnDate());
+        vehicle.getBookedDates().removeAll(daysInBetween);
+        customer.getBookings().remove(booking);
+        bookingRepository.deleteById(id);
+
+        return new ResponseEntity<>("Booking " + id + " deleted.", HttpStatus.OK);
+    }
+
     public Collection<Booking> getBookings() {
         return bookingRepository.findAll();
+    }
+
+    public Booking checkIfBookingExists(Long id) {
+        Optional<Booking> optionalBooking = bookingRepository.findById(id);
+        if (optionalBooking.isEmpty()) {
+            throw new RecordNotFoundException(id);
+        }
+        return optionalBooking.get();
     }
 
     public Customer checkIfCustomerExists(String userName) {
@@ -106,8 +123,11 @@ public class BookingServiceImpl implements BookingService {
         return LocalDate.parse(givenDate, formatter);
     }
 
+    public List<LocalDate> datesChecker(LocalDate startDate, LocalDate returnDate) {
 
-    // TODO: 18-10-2021 createBooking() en dan addVehicleToBooking() apart
+        return startDate.datesUntil(returnDate.plusDays(1)).collect(Collectors.toList());
+    }
+
 
     public ResponseEntity<Object> bookVehicle(String userName, BookVehicleRequest bookVehicleRequest) {
 
@@ -120,7 +140,7 @@ public class BookingServiceImpl implements BookingService {
 
         LocalDate startDate =  startDateFormatter(bookVehicleRequest);
         LocalDate returnDate = returnDateFormatter(bookVehicleRequest);
-        List<LocalDate> daysInBetween = startDate.datesUntil(returnDate.plusDays(1)).collect(Collectors.toList());
+        List<LocalDate> daysInBetween = datesChecker(startDate, returnDate);
 
         Period bookingPeriod = Period.between(startDate, returnDate);
         long bookingDays = bookingPeriod.getDays();
