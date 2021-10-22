@@ -40,16 +40,18 @@ public class UserController extends BaseController {
 
     @GetMapping(value = "/users")
     public ResponseEntity<Object> getCustomers() {
+        logger.info("Getting list of Users.");
         return ResponseEntity.ok().body(customerService.getCustomers());
     }
 
     @GetMapping(value = "/users/{username}")
     public ResponseEntity<Object> getCustomer(@PathVariable("username") String userName) {
+        logger.info("Getting User info.");
         return customerService.getUser(userName);
-
     }
     @PostMapping(value = "/users/{username}/booking")
     public ResponseEntity<Object> addBooking(@PathVariable("username") String userName, @Valid @RequestBody BookVehicleRequest bookVehicleRequest) {
+        logger.info(userName + " booked vehicle Nr: " + bookVehicleRequest.getVehicleId());
         return bookingService.bookVehicle(userName, bookVehicleRequest);
     }
 

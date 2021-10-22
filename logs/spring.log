@@ -1,0 +1,141 @@
+2021-10-22 15:08:00.340  INFO 1996 --- [main] c.example.Voertuig.VoertuigApplication   : Starting VoertuigApplication using Java 11.0.9.1 on DESKTOP-B5U6RGF with PID 1996 (C:\Users\game-pc\Documents\HBO ICT\Casus Voertuig\target\classes started by game-pc in C:\Users\game-pc\Documents\HBO ICT\Casus Voertuig)
+2021-10-22 15:08:00.343  INFO 1996 --- [main] c.example.Voertuig.VoertuigApplication   : No active profile set, falling back to default profiles: default
+2021-10-22 15:08:01.220  INFO 1996 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-22 15:08:01.320  INFO 1996 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 91 ms. Found 5 JPA repository interfaces.
+2021-10-22 15:08:01.538  INFO 1996 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=ffe5e6a6-faf0-3b72-998d-c656138e94cc
+2021-10-22 15:08:01.676  INFO 1996 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@76d7881e' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-10-22 15:08:01.680  INFO 1996 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-10-22 15:08:01.884  INFO 1996 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8070 (http)
+2021-10-22 15:08:01.891  INFO 1996 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-10-22 15:08:01.891  INFO 1996 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-10-22 15:08:02.004  INFO 1996 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-10-22 15:08:02.005  INFO 1996 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1635 ms
+2021-10-22 15:08:02.135  WARN 1996 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-22 15:08:02.216  INFO 1996 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-10-22 15:08:02.248  INFO 1996 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.29.Final
+2021-10-22 15:08:02.329  INFO 1996 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-22 15:08:02.396  INFO 1996 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-22 15:08:02.521  INFO 1996 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-22 15:08:02.530  INFO 1996 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2021-10-22 15:08:03.326  INFO 1996 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-22 15:08:03.333  INFO 1996 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-10-22 15:08:04.312  INFO 1996 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-10-22 15:08:04.341  INFO 1996 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@47f677a4, org.springframework.security.web.context.SecurityContextPersistenceFilter@33502cfe, org.springframework.security.web.header.HeaderWriterFilter@2686a801, org.springframework.web.filter.CorsFilter@2472ba04, org.springframework.security.web.authentication.logout.LogoutFilter@2ba4b32b, com.example.Voertuig.serviceImpl.security.jwt.AuthTokenFilter@5b2c41f9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@115924ba, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1f27f354, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1a0e5c0c, org.springframework.security.web.session.SessionManagementFilter@296949c8, org.springframework.security.web.access.ExceptionTranslationFilter@414d466e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@12bb8943]
+2021-10-22 15:08:04.383  INFO 1996 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-10-22 15:08:04.713  INFO 1996 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8070 (http) with context path ''
+2021-10-22 15:08:04.789  INFO 1996 --- [main] c.example.Voertuig.VoertuigApplication   : Started VoertuigApplication in 4.826 seconds (JVM running for 5.421)
+2021-10-22 15:08:05.237  INFO 1996 --- [RMI TCP Connection(1)-192.168.2.9] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-10-22 15:08:05.237  INFO 1996 --- [RMI TCP Connection(1)-192.168.2.9] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-10-22 15:08:05.239  INFO 1996 --- [RMI TCP Connection(1)-192.168.2.9] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-10-22 15:08:32.387  INFO 1996 --- [http-nio-8070-exec-3] c.e.Voertuig.controller.UserController   : Getting user data
+2021-10-22 15:19:23.944  INFO 1996 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-10-22 15:19:23.950  INFO 1996 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-10-22 15:19:23.952  INFO 1996 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-10-22 15:19:23.957  INFO 1996 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-10-22 15:19:30.030  INFO 18368 --- [main] c.example.Voertuig.VoertuigApplication   : Starting VoertuigApplication using Java 11.0.9.1 on DESKTOP-B5U6RGF with PID 18368 (C:\Users\game-pc\Documents\HBO ICT\Casus Voertuig\target\classes started by game-pc in C:\Users\game-pc\Documents\HBO ICT\Casus Voertuig)
+2021-10-22 15:19:30.033  INFO 18368 --- [main] c.example.Voertuig.VoertuigApplication   : No active profile set, falling back to default profiles: default
+2021-10-22 15:19:30.879  INFO 18368 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-22 15:19:30.950  INFO 18368 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66 ms. Found 5 JPA repository interfaces.
+2021-10-22 15:19:31.118  INFO 18368 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=ffe5e6a6-faf0-3b72-998d-c656138e94cc
+2021-10-22 15:19:31.230  INFO 18368 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@83bb0f' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-10-22 15:19:31.234  INFO 18368 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-10-22 15:19:31.412  INFO 18368 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8070 (http)
+2021-10-22 15:19:31.419  INFO 18368 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-10-22 15:19:31.419  INFO 18368 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-10-22 15:19:31.526  INFO 18368 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-10-22 15:19:31.526  INFO 18368 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1466 ms
+2021-10-22 15:19:31.654  WARN 18368 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-22 15:19:31.733  INFO 18368 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-10-22 15:19:31.763  INFO 18368 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.29.Final
+2021-10-22 15:19:31.849  INFO 18368 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-22 15:19:31.916  INFO 18368 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-22 15:19:32.035  INFO 18368 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-22 15:19:32.044  INFO 18368 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2021-10-22 15:19:32.788  INFO 18368 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-22 15:19:32.795  INFO 18368 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-10-22 15:19:33.714  INFO 18368 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-10-22 15:19:33.742  INFO 18368 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@13288174, org.springframework.security.web.context.SecurityContextPersistenceFilter@b307030, org.springframework.security.web.header.HeaderWriterFilter@112b3298, org.springframework.web.filter.CorsFilter@24ae2183, org.springframework.security.web.authentication.logout.LogoutFilter@6dc7b7f, com.example.Voertuig.serviceImpl.security.jwt.AuthTokenFilter@f0d01c9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@263f6e96, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7878459f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5b697993, org.springframework.security.web.session.SessionManagementFilter@504b4a97, org.springframework.security.web.access.ExceptionTranslationFilter@7b44e98e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5b977aaa]
+2021-10-22 15:19:33.779  INFO 18368 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-10-22 15:19:34.104  INFO 18368 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8070 (http) with context path ''
+2021-10-22 15:19:34.180  INFO 18368 --- [main] c.example.Voertuig.VoertuigApplication   : Started VoertuigApplication in 4.509 seconds (JVM running for 5.112)
+2021-10-22 15:19:34.455  INFO 18368 --- [RMI TCP Connection(3)-192.168.2.9] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-10-22 15:19:34.456  INFO 18368 --- [RMI TCP Connection(3)-192.168.2.9] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-10-22 15:19:34.457  INFO 18368 --- [RMI TCP Connection(3)-192.168.2.9] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-10-22 15:19:45.207  INFO 18368 --- [http-nio-8070-exec-1] c.e.Voertuig.controller.AuthController   : User sign in: admin
+2021-10-22 15:19:56.861  INFO 18368 --- [http-nio-8070-exec-3] c.e.Voertuig.controller.AuthController   : User log in: admin
+2021-10-22 15:20:07.061  INFO 18368 --- [http-nio-8070-exec-4] c.e.V.controller.VehicleController       : Admin created new vehicle.
+2021-10-22 15:20:14.006  INFO 18368 --- [http-nio-8070-exec-5] c.e.Voertuig.controller.UserController   : admin booked vehicle: 1
+2021-10-22 15:28:57.311  INFO 18368 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-10-22 15:28:57.317  INFO 18368 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-10-22 15:28:57.319  INFO 18368 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-10-22 15:28:57.323  INFO 18368 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-10-22 15:29:03.287  INFO 3860 --- [main] c.example.Voertuig.VoertuigApplication   : Starting VoertuigApplication using Java 11.0.9.1 on DESKTOP-B5U6RGF with PID 3860 (C:\Users\game-pc\Documents\HBO ICT\Casus Voertuig\target\classes started by game-pc in C:\Users\game-pc\Documents\HBO ICT\Casus Voertuig)
+2021-10-22 15:29:03.289  INFO 3860 --- [main] c.example.Voertuig.VoertuigApplication   : No active profile set, falling back to default profiles: default
+2021-10-22 15:29:04.126  INFO 3860 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-22 15:29:04.195  INFO 3860 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 64 ms. Found 5 JPA repository interfaces.
+2021-10-22 15:29:04.364  INFO 3860 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=ffe5e6a6-faf0-3b72-998d-c656138e94cc
+2021-10-22 15:29:04.484  INFO 3860 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@3e39baf0' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-10-22 15:29:04.486  INFO 3860 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-10-22 15:29:04.666  INFO 3860 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8070 (http)
+2021-10-22 15:29:04.673  INFO 3860 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-10-22 15:29:04.673  INFO 3860 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-10-22 15:29:04.783  INFO 3860 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-10-22 15:29:04.783  INFO 3860 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1466 ms
+2021-10-22 15:29:04.903  WARN 3860 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-22 15:29:04.981  INFO 3860 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-10-22 15:29:05.011  INFO 3860 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.29.Final
+2021-10-22 15:29:05.085  INFO 3860 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-22 15:29:05.151  INFO 3860 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-22 15:29:05.267  INFO 3860 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-22 15:29:05.277  INFO 3860 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2021-10-22 15:29:06.038  INFO 3860 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-22 15:29:06.045  INFO 3860 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-10-22 15:29:06.976  INFO 3860 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-10-22 15:29:07.004  INFO 3860 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@431f8830, org.springframework.security.web.context.SecurityContextPersistenceFilter@7d49fe37, org.springframework.security.web.header.HeaderWriterFilter@49741e80, org.springframework.web.filter.CorsFilter@75bbe39d, org.springframework.security.web.authentication.logout.LogoutFilter@6c68f29c, com.example.Voertuig.serviceImpl.security.jwt.AuthTokenFilter@2643ed03, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@231c521e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@252d2ac0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6805415d, org.springframework.security.web.session.SessionManagementFilter@5af1b221, org.springframework.security.web.access.ExceptionTranslationFilter@4964d801, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4f0f56f5]
+2021-10-22 15:29:07.042  INFO 3860 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-10-22 15:29:07.356  INFO 3860 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8070 (http) with context path ''
+2021-10-22 15:29:07.430  INFO 3860 --- [main] c.example.Voertuig.VoertuigApplication   : Started VoertuigApplication in 4.504 seconds (JVM running for 5.087)
+2021-10-22 15:29:07.993  INFO 3860 --- [RMI TCP Connection(3)-192.168.2.9] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-10-22 15:29:07.993  INFO 3860 --- [RMI TCP Connection(3)-192.168.2.9] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-10-22 15:29:07.995  INFO 3860 --- [RMI TCP Connection(3)-192.168.2.9] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-10-22 15:29:50.969  INFO 3860 --- [http-nio-8070-exec-2] c.e.Voertuig.controller.AuthController   : User sign in: admin
+2021-10-22 15:29:54.100  INFO 3860 --- [http-nio-8070-exec-3] c.e.Voertuig.controller.AuthController   : User log in: admin
+2021-10-22 15:29:57.580  INFO 3860 --- [http-nio-8070-exec-4] c.e.V.controller.VehicleController       : Admin created new vehicle.
+2021-10-22 15:29:58.903  INFO 3860 --- [http-nio-8070-exec-5] c.e.V.controller.VehicleController       : Admin created new vehicle.
+2021-10-22 15:30:00.074  INFO 3860 --- [http-nio-8070-exec-6] c.e.V.controller.VehicleController       : Admin created new vehicle.
+2021-10-22 15:30:03.457  INFO 3860 --- [http-nio-8070-exec-7] c.e.Voertuig.controller.UserController   : admin booked vehicle Nr: 1
+2021-10-22 15:30:04.460  INFO 3860 --- [http-nio-8070-exec-8] c.e.Voertuig.controller.UserController   : admin booked vehicle Nr: 1
+2021-10-22 15:30:04.465  WARN 3860 --- [http-nio-8070-exec-8] c.e.V.controller.ExceptionController     : Vehicle 1 is unavailable for this period of time.
+2021-10-22 15:39:19.529  INFO 3860 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-10-22 15:39:19.534  INFO 3860 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-10-22 15:39:19.536  INFO 3860 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-10-22 15:39:19.540  INFO 3860 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-10-22 15:39:22.580  INFO 13676 --- [main] c.example.Voertuig.VoertuigApplication   : Starting VoertuigApplication using Java 11.0.9.1 on DESKTOP-B5U6RGF with PID 13676 (C:\Users\game-pc\Documents\HBO ICT\Casus Voertuig\target\classes started by game-pc in C:\Users\game-pc\Documents\HBO ICT\Casus Voertuig)
+2021-10-22 15:39:22.583  INFO 13676 --- [main] c.example.Voertuig.VoertuigApplication   : No active profile set, falling back to default profiles: default
+2021-10-22 15:39:23.399  INFO 13676 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-22 15:39:23.471  INFO 13676 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66 ms. Found 5 JPA repository interfaces.
+2021-10-22 15:39:23.661  INFO 13676 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=ffe5e6a6-faf0-3b72-998d-c656138e94cc
+2021-10-22 15:39:23.777  INFO 13676 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@25a94b55' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-10-22 15:39:23.780  INFO 13676 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-10-22 15:39:23.960  INFO 13676 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8070 (http)
+2021-10-22 15:39:23.966  INFO 13676 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-10-22 15:39:23.967  INFO 13676 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-10-22 15:39:24.072  INFO 13676 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-10-22 15:39:24.072  INFO 13676 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1458 ms
+2021-10-22 15:39:24.199  WARN 13676 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-22 15:39:24.279  INFO 13676 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-10-22 15:39:24.308  INFO 13676 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.29.Final
+2021-10-22 15:39:24.383  INFO 13676 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-22 15:39:24.448  INFO 13676 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-22 15:39:24.565  INFO 13676 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-22 15:39:24.574  INFO 13676 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2021-10-22 15:39:25.340  INFO 13676 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-22 15:39:25.346  INFO 13676 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-10-22 15:39:26.295  INFO 13676 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-10-22 15:39:26.323  INFO 13676 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@738ae785, org.springframework.security.web.context.SecurityContextPersistenceFilter@296949c8, org.springframework.security.web.header.HeaderWriterFilter@643a73fa, org.springframework.web.filter.CorsFilter@13288174, org.springframework.security.web.authentication.logout.LogoutFilter@623ed5ed, com.example.Voertuig.serviceImpl.security.jwt.AuthTokenFilter@17d45cfb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@33502cfe, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@36ce9eaf, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@24ae2183, org.springframework.security.web.session.SessionManagementFilter@74ab8610, org.springframework.security.web.access.ExceptionTranslationFilter@263f6e96, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@164cad52]
+2021-10-22 15:39:26.362  INFO 13676 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-10-22 15:39:26.680  INFO 13676 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8070 (http) with context path ''
+2021-10-22 15:39:26.754  INFO 13676 --- [main] c.example.Voertuig.VoertuigApplication   : Started VoertuigApplication in 4.566 seconds (JVM running for 5.204)
+2021-10-22 15:39:26.887  INFO 13676 --- [RMI TCP Connection(2)-192.168.2.9] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-10-22 15:39:26.888  INFO 13676 --- [RMI TCP Connection(2)-192.168.2.9] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-10-22 15:39:26.889  INFO 13676 --- [RMI TCP Connection(2)-192.168.2.9] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms

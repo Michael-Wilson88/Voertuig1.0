@@ -5,9 +5,10 @@
       "type": "java.lang.String",
       "description": "Description for src/test/resources."
     },
+
     {
-      "name": "src/test/resources",
+      "name": "voertuig.sec.jwtSecret",
       "type": "java.lang.String",
-      "description": "Description for src/test/resources."
+      "description": "Description for voertuig.sec.jwtSecret."
     }
   ] }

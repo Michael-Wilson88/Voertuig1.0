@@ -8,8 +8,11 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Logger;
 
 public abstract class BaseController {
+
+    Logger logger = Logger.getLogger(BaseController.class.getName());
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -19,6 +22,7 @@ public abstract class BaseController {
             String fieldName = ((FieldError) error).getField();
             String errorMessage = error.getDefaultMessage();
             errors.put(fieldName, errorMessage);
+            logger.warning(errorMessage);
         });
         return errors;
     }

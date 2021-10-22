@@ -7,11 +7,14 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
+import java.util.logging.Logger;
 
 @RestController
 public class BookingController extends BaseController {
 
     private BookingService bookingService;
+
+    Logger logger = Logger.getLogger(BookingController.class.getName());
 
     @Autowired
     public void setBookingService(BookingService bookingService) {
@@ -20,15 +23,15 @@ public class BookingController extends BaseController {
 
     @GetMapping(value = "/bookings")
     public ResponseEntity<Object> getBookings() {
+        logger.info("Retrieving bookings list.");
         return ResponseEntity.ok(bookingService.getBookings());
     }
 
-
     @DeleteMapping(value = "/{username}/{id}")
     public ResponseEntity<Object> deleteBooking(@PathVariable("username")String username, @PathVariable("id") Long id) {
+        logger.info(username + " deleted booking Nr: " + id);
         return bookingService.deleteBooking(username, id);
     }
 
-//    @GetMapping(value = "/user/bookings")
 
 }

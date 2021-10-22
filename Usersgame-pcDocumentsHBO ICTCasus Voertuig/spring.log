@@ -1,0 +1,34 @@
+2021-10-22 13:47:12.027  INFO 2676 --- [main] c.example.Voertuig.VoertuigApplication   : Starting VoertuigApplication using Java 11.0.9.1 on DESKTOP-B5U6RGF with PID 2676 (C:\Users\game-pc\Documents\HBO ICT\Casus Voertuig\target\classes started by game-pc in C:\Users\game-pc\Documents\HBO ICT\Casus Voertuig)
+2021-10-22 13:47:12.029  INFO 2676 --- [main] c.example.Voertuig.VoertuigApplication   : No active profile set, falling back to default profiles: default
+2021-10-22 13:47:12.863  INFO 2676 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-22 13:47:12.932  INFO 2676 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 63 ms. Found 5 JPA repository interfaces.
+2021-10-22 13:47:13.130  INFO 2676 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=ffe5e6a6-faf0-3b72-998d-c656138e94cc
+2021-10-22 13:47:13.260  INFO 2676 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@3635099' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-10-22 13:47:13.264  INFO 2676 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-10-22 13:47:13.454  INFO 2676 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8070 (http)
+2021-10-22 13:47:13.462  INFO 2676 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-10-22 13:47:13.462  INFO 2676 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-10-22 13:47:13.583  INFO 2676 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-10-22 13:47:13.583  INFO 2676 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1524 ms
+2021-10-22 13:47:13.731  WARN 2676 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-22 13:47:13.814  INFO 2676 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-10-22 13:47:13.845  INFO 2676 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.29.Final
+2021-10-22 13:47:13.926  INFO 2676 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-22 13:47:13.994  INFO 2676 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-22 13:47:14.115  INFO 2676 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-22 13:47:14.124  INFO 2676 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2021-10-22 13:47:14.873  INFO 2676 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-22 13:47:14.880  INFO 2676 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-10-22 13:47:15.811  INFO 2676 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-10-22 13:47:15.839  INFO 2676 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3791160a, org.springframework.security.web.context.SecurityContextPersistenceFilter@39acf187, org.springframework.security.web.header.HeaderWriterFilter@36696821, org.springframework.web.filter.CorsFilter@1d9cac6e, org.springframework.security.web.authentication.logout.LogoutFilter@5ca006ac, com.example.Voertuig.serviceImpl.security.jwt.AuthTokenFilter@4acdf6e7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@dd3e1e3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@690e7b89, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5f510929, org.springframework.security.web.session.SessionManagementFilter@49741e80, org.springframework.security.web.access.ExceptionTranslationFilter@51d2d336, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@431f8830]
+2021-10-22 13:47:15.878  INFO 2676 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-10-22 13:47:16.193  INFO 2676 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8070 (http) with context path ''
+2021-10-22 13:47:16.267  INFO 2676 --- [main] c.example.Voertuig.VoertuigApplication   : Started VoertuigApplication in 4.632 seconds (JVM running for 5.27)
+2021-10-22 13:47:16.402  INFO 2676 --- [RMI TCP Connection(1)-192.168.2.9] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-10-22 13:47:16.402  INFO 2676 --- [RMI TCP Connection(1)-192.168.2.9] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-10-22 13:47:16.404  INFO 2676 --- [RMI TCP Connection(1)-192.168.2.9] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-10-22 13:47:37.670  INFO 2676 --- [http-nio-8070-exec-4] c.e.Voertuig.controller.UserController   : Getting user data
+2021-10-22 13:48:57.565  INFO 2676 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-10-22 13:48:57.570  INFO 2676 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-10-22 13:48:57.572  INFO 2676 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-10-22 13:48:57.576  INFO 2676 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
