@@ -3,6 +3,7 @@ package com.example.Voertuig.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 import javax.persistence.*;
 import java.util.Set;

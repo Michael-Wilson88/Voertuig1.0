@@ -8,6 +8,5 @@ import org.springframework.stereotype.Service;
 @Service
 public interface CustomerService {
     Object getCustomers();
-    ResponseEntity<?> createTempUser(SignupRequest signupRequest);
     ResponseEntity<Object> getUser(String userName);
 }

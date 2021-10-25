@@ -25,30 +25,10 @@ public class CustomerServiceImpl implements CustomerService {
         return ResponseEntity.ok(customerRepository.findAll());
     }
 
-    // TODO: 18-10-2021 Deze temp method weghalen en vervangen door security en authorizatie
-    public ResponseEntity<?> createTempUser(SignupRequest signupRequest) {
-
-        Customer customer = new Customer();
-        customer.setUsername(signupRequest.getUsername());
-        customer.setEmail(signupRequest.getEmail());
-        customer.setPassword(signupRequest.getPassword());
-        customer.setAddress(signupRequest.getAddress());
-        customer.setZipcode(signupRequest.getZipcode());
-        customer.setCountry(signupRequest.getCountry());
-
-        customerRepository.save(customer);
-        return new ResponseEntity<>("User " + customer.getUsername() + " has been created.", HttpStatus.OK);
-
-    }
-
     public ResponseEntity<Object> getUser(String userName) {
         Customer customer = customerRepository.findCustomerByUsername(userName)
                 .orElseThrow(() -> new UserNotFoundException(userName));
         return ResponseEntity.ok().body(ResponseBuilder.customerResponse(customer));
     }
-
-//    public ResponseEntity<?> getBookings() {
-//
-//    }
 
 }

@@ -115,13 +115,13 @@ public class BookingServiceImpl implements BookingService {
 
         return LocalDate.parse(bookVehicleRequest.getEndDate(), formatter);
     }
-    public LocalDate dateFormatter(String givenDate) {
-        DateTimeFormatter formatter = new DateTimeFormatterBuilder()
-                .parseCaseInsensitive()
-                .appendPattern("dd-MM-yyyy")
-                .toFormatter(Locale.ENGLISH);
-        return LocalDate.parse(givenDate, formatter);
-    }
+//    public LocalDate dateFormatter(String givenDate) {
+//        DateTimeFormatter formatter = new DateTimeFormatterBuilder()
+//                .parseCaseInsensitive()
+//                .appendPattern("dd-MM-yyyy")
+//                .toFormatter(Locale.ENGLISH);
+//        return LocalDate.parse(givenDate, formatter);
+//    }
 
     public List<LocalDate> datesChecker(LocalDate startDate, LocalDate returnDate) {
 
@@ -141,15 +141,15 @@ public class BookingServiceImpl implements BookingService {
         LocalDate startDate =  startDateFormatter(bookVehicleRequest);
         LocalDate returnDate = returnDateFormatter(bookVehicleRequest);
         List<LocalDate> daysInBetween = datesChecker(startDate, returnDate);
-
         Period bookingPeriod = Period.between(startDate, returnDate);
         long bookingDays = bookingPeriod.getDays();
 
-
+        if (bookingDays <= 0) {
+            throw new IncorrectDateException();
+        }
         if(bookedDates.stream().anyMatch(daysInBetween::contains)) {
             throw new VehicleUnavailableException(vehicle.getVehicleId());
         }
-
         else if (bookedDates.stream().noneMatch(daysInBetween::contains)) {
             booking.setStartDate(startDate);
             booking.setReturnDate(returnDate);
@@ -158,14 +158,11 @@ public class BookingServiceImpl implements BookingService {
             booking.setDays(bookingDays);
             bookedDates.addAll(daysInBetween);
             vehicle.setBookedDates(bookedDates);
+            vehicleBookings.add(booking);
             vehicleRepository.save(vehicle);
             bookingRepository.save(booking);
             return ResponseEntity.ok().body("Booking " + booking.getBookingId() + " has been created");
-//                    customerRepository.save(customer);
         }
-
         return ResponseEntity.ok().body("BRRRT error, error");
     }
-
-
 }

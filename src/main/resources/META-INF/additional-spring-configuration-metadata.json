@@ -5,10 +5,14 @@
       "type": "java.lang.String",
       "description": "Description for src/test/resources."
     },
-
     {
       "name": "voertuig.sec.jwtSecret",
       "type": "java.lang.String",
       "description": "Description for voertuig.sec.jwtSecret."
+    },
+    {
+      "name": "spring.security.user.role",
+      "type": "java.lang.String",
+      "description": "Description for spring.security.user.role."
     }
   ] }
