@@ -2,6 +2,7 @@ package com.example.Voertuig.repository;
 
 import com.example.Voertuig.domain.Booking;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Repository;
 
 @Repository
