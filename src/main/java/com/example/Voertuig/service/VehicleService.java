@@ -9,4 +9,6 @@ public interface VehicleService {
 
     ResponseEntity<?> createVehicle(VehicleRequest vehicleRequest);
     ResponseEntity<?> getVehicles();
+    void updateVehicle(VehicleRequest vehicleRequest);
+    ResponseEntity<Object> getVehicle(long id);
 }

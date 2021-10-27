@@ -7,9 +7,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Data
 @Entity
@@ -21,12 +19,13 @@ public class Vehicle {
     private String brandName;
     private String brandModel;
     private String vehicleType;
+    private boolean isAvailable;
     @JsonIgnore
     private long bookingDays;
     @JsonIgnore
     private LocalDate returnDate;
 
-    private static int counter = 0;
+    private static int counter = -1;
 
     @JsonIgnore
     @Transient
@@ -56,9 +55,8 @@ public class Vehicle {
         counter++;
     }
 
-    public static int totalNoVehicle() {
+    public static int getCounter() {
         return counter;
     }
-
 
 }

@@ -11,7 +11,8 @@ public class ResponseBuilder {
                 vehicle.getVehicleId(),
                 vehicle.getBrandName(),
                 vehicle.getBrandModel(),
-                vehicle.getVehicleType()
+                vehicle.getVehicleType(),
+                vehicle.isAvailable()
         );
     }
 

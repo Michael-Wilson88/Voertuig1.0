@@ -44,11 +44,13 @@ public class UserController extends BaseController {
         return ResponseEntity.ok().body(customerService.getCustomers());
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping(value = "/users/{username}")
     public ResponseEntity<Object> getCustomer(@PathVariable("username") String userName) {
         logger.info("Getting User info.");
         return customerService.getUser(userName);
     }
+
     @PostMapping(value = "/users/{username}/booking")
     public ResponseEntity<Object> addBooking(@PathVariable("username") String userName, @Valid @RequestBody BookVehicleRequest bookVehicleRequest) {
         logger.info(userName + " booked vehicle Nr: " + bookVehicleRequest.getVehicleId());
